@@ -528,7 +528,7 @@ app.get('/error', (req, res) => {
       
         // Display the appointments as cards
         res.render('medical-records.ejs', { personalInfo });
-        console.log(personalInfo)
+        //console.log(personalInfo)
         
       
     } catch (error) {
@@ -598,7 +598,7 @@ app.get('/error', (req, res) => {
         const updatedPersonalInfo = await PersonalInfo.findOne({ patientuser: patientUsername });
 
         // Render the medical-records.ejs template with the updated data
-        console.log(updatedPersonalInfo);
+        //console.log(updatedPersonalInfo);
         res.render('medical-records.ejs', { personalInfo: [updatedPersonalInfo] });
     } catch (error) {
         console.error('Error saving/updating personal information:', error);
