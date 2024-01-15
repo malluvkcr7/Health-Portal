@@ -1,0 +1,220 @@
+ <!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Add your custom CSS -->
+    <style>
+        /* Add custom CSS styles */
+        body {
+            background-color: #33cece; /* Set a soothing background color */
+        }
+        
+
+
+        .container {
+            margin-top: 30px;
+            background-color: #ffffff; /* Container background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-heading {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333; /* Heading text color */
+        }
+       
+        .navbar {
+            background-color: #6a64f1; /* Change the background color */
+        }
+        .navbar-brand {
+            color: rgb(199, 26, 26) !important; /* Change the brand text color to white */
+            font-weight: bold;
+        }
+        .navbar-toggler-icon {
+            background-color: white; /* Change the color of the toggler icon */
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: white !important; /* Change the links text color to white */
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #f8f9fa !important; /* Change the link text color on hover */
+        }
+        .btn-primary {
+            background-color: #6a64f1; /* Button background color */
+            border-color: #6a64f1; /* Button border color */
+        }
+        .btn-primary:hover {
+            background-color: #544dc3; /* Button background color on hover */
+            border-color: #544dc3; /* Button border color on hover */
+        }
+        
+        
+       
+    </style>
+</head>
+<body>
+    <!-- Your HTML content -->
+
+<!-- Rest of your HTML -->
+
+    <!-- Navigation Bar -->
+    <div class="background-image"></div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/patientdash.html">Care Beyond Boundaries</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/appointments">Appointments</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="/medical-records">Medical Records</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/patient-records">Remarks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h2 class="form-heading">Your Appointments</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Specialist</th>
+                    <th>Problem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const appointment of appointments) { %>
+                    <tr>
+                        <td><%= appointment.patientuser %></td>
+                        <td><%= appointment.date.toDateString() %></td>
+                        <td><%= appointment.time %></td>
+                        <td><%= appointment.specialist %></td>
+                        <td><%= appointment.problem %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#scheduling-form">
+        Schedule an Appointment
+    </button>
+
+    <div class="collapse" id="scheduling-form">
+        <h1 class="form-heading">Schedule an Appointment</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/appointments" method="POST"> <!-- Specify the form action -->
+                    <!-- Your form content here -->
+                    <input type="hidden" id="username" name="username" value="YOUR_USERNAME">
+                    <div class="form-group">
+                        <label for="problem">Problem:</label>
+                        <textarea class="form-control" id="problem" name="problem" rows="4" placeholder="Describe the problem you're facing" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialist">Select Specialist:</label>
+                        <select class="form-control" id="specialist" name="specialist" required>
+                            <option value="General Physician">General Physician</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="Dermatologist">Dermatologist</option>
+                            <option value="Ophthalmologist">Ophthalmologist</option>
+                            <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+                            <option value="Gynecologist">Gynecologist</option>
+                            <option value="Pediatrician">Pediatrician</option>
+                            <option value="Radiology">Radiology</option>
+                            <option value="ENT">ENT</option>
+                            <!-- Add more specialist options as needed -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-date">Select Appointment Date:</label>
+                       <input type="date" class="form-control" id="appointment-date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-time">Select Appointment Time:</label>
+                        <select class="form-control" id="appointment-time" name="time" required>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                            <option value="18:00">06:00 PM</option>
+                            <option value="19:00">07:00 PM</option>
+                            <option value="20:00">08:00 PM</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Schedule Appointment</button>
+                </form>
+            </div>
+        </div>
+        <!-- Your HTML content -->
+
+<!-- Rest of your HTML -->
+
+
+       
+    </div>
+
+
+    <!-- Add Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to fetch and display appointments with AJAX
+        function capitalizeSentences(inputId) {
+        var inputElement = document.getElementById(inputId);
+        var inputValue = inputElement.value;
+
+        // Split the input text into sentences using periods followed by spaces as separators
+        var sentences = inputValue.split('. ');
+
+        // Capitalize the first letter of each sentence and join them back together
+        for (var i = 0; i < sentences.length; i++) {
+            sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].slice(1);
+        }
+
+        // Update the input value with the capitalized sentences
+        inputElement.value = sentences.join('. ');
+    }
+
+    // Listen for the form submission event
+    document.querySelector('form').addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent the form from submitting immediately
+
+        // Call the capitalizeSentences function for specific textareas
+        capitalizeSentences('problem');
+
+        // Now, you can submit the form or perform other actions
+        this.submit();
+    });
+
+    
+
+    </script>
+</body>
+</html>

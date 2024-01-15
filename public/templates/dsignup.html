@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Signup</title>
+    <link rel="stylesheet" href="/static/css/dsignup.css">
+</head>
+<body>
+   
+    <div class="container">
+        <h1>Doctor Signup</h1>
+        <!-- Add this to your dsignup.html file -->
+<form action="/doctor-login" method="POST">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+        <label for="specialist">Select Specialist:</label>
+        <select class="form-control" id="specialist" name="specialist" required>
+            <option value="General Physician">General Physician</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Dermatologist">Dermatologist</option>
+            <option value="Ophthalmologist">Ophthalmologist</option>
+            <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+            <option value="Gynecologist">Gynecologist</option>
+            <option value="Pediatrician">Pediatrician</option>
+            <option value="Radiology">Radiology</option>
+            <option value="ENT">ENT</option>
+            <!-- Add more specialist options as needed -->
+        </select>
+    </div>
+
+    <button type="submit">Login</button>
+    <a href="/index.html" class="back-button">Back</a>
+</form>
+
+
+        <div class="forgot-password">
+            <a href="/dforgot-password.html">Forgot Password?</a>
+
+        </div>
+        <a href="/dcreate-account" class="create-account-button">Create Account</a>
+    </div>
+</body>
+</html>

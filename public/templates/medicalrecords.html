@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS -->
+    <style>
+        /* Custom styling */
+        body {
+            background-color: #33cece; /* Light gray background */
+        }
+        .container {
+            margin-top: 30px;
+            background-color: #ffffff; /* White container background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40; /* Dark gray text color */
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        nav {
+            background-color: #231bc1 !important; /* Change the background color */
+        }
+        .navbar-brand {
+            color: #fff; /* White brand text color */
+            font-weight: bold;
+        }
+        .navbar-toggler-icon {
+            background-color: white; /* Change the color of the toggler icon */
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: white; /* White links text color */
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #f8f9fa; /* White link text color on hover */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Primary button color */
+            border-color: #007bff; /* Button border color */
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Button background color on hover */
+            border-color: #0056b3; /* Button border color on hover */
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="background-image"></div>
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/patientdash.html">Care Beyond Boundaries</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/appointments">Appointments</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/medical-records">Medical Records</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/patient-records">Remarks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center">Personal Information</h1>
+        <form method="POST" action="/save-personal-info">
+            <input type="hidden" id="username" name="username" value="YOUR_USERNAME">
+            <div class="form-group">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob" class="form-label">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="weight" class="form-label">Weight (kg):</label>
+                <input type="number" class="form-control" id="weight" name="weight" required>
+            </div>
+            <div class="form-group">
+                <label for="height" class="form-label">Height (cm):</label>
+                <input type="number" class="form-control" id="height" name="height" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Gender:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="prefernottosay" value="prefernottosay" required>
+                    <label class="form-check-label" for="prefernottosay">Prefer Not to say</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="blood-group">Blood Group:</label>
+                <select class="form-control" id="blood-group" name="blood-group" required>
+                    <option value="A +ve">A +ve</option>
+                    <option value="A -ve">A -ve</option>
+                    <option value="B +ve">B +ve</option>
+                    <option value="B -ve">B -ve</option>
+                    <option value="O +ve">O +ve</option>
+                    <option value="O -ve">O -ve</option>
+                    <option value="AB +ve">AB +ve</option>
+                    <option value="AB -ve">AB -ve</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="allergies" class="form-label">Drug Allergies:</label>
+                <textarea class="form-control" id="allergies" name="allergies"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="surgeries" class="form-label">Operations or Surgeries:</label>
+                <textarea class="form-control" id="surgeries" name="surgeries"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Current Medications:</label>
+                <textarea class="form-control" id="medications" name="medications"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Alcohol Consumption:</label>
+                <select class="form-control" id="alcohol" name="alcohol">
+                    <option value="none">None</option>
+                    <option value="occasional">Occasional</option>
+                    <option value="regular">Regular</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Smoking:</label>
+                <select class="form-control" id="smoking" name="smoking">
+                    <option value="none">None</option>
+                    <option value="occasional">Occasional</option>
+                    <option value="regular">Regular</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Caffeine Consumption:</label>
+                <select class="form-control" id="caffeine" name="caffeine">
+                    <option value="none">None</option>
+                    <option value="occasional">Occasional</option>
+                    <option value="regular">Regular</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+         function capitalizeSentences(inputId) {
+            var inputElement = document.getElementById(inputId);
+            var inputValue = inputElement.value;
+            var sentences = inputValue.split('. ');
+
+            // Capitalize the first letter of each sentence
+            for (var i = 0; i < sentences.length; i++) {
+                sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].slice(1);
+            }
+
+            // Join the sentences back together with '. ' and update the input value
+            inputElement.value = sentences.join('. ');
+        }
+
+        // Call the capitalizeSentences function when the form is submitted
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the form from submitting immediately
+
+            // Call the capitalizeSentences function for specific textareas
+            capitalizeSentences('allergies');
+            capitalizeSentences('surgeries');
+            capitalizeSentences('medications');
+
+            // Now, you can submit the form or perform other actions
+            this.submit();
+        });
+    </script>
+</body>
+</html>

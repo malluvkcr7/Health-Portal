@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="container">
+        <div class="center-content">
+            <h1>Care Beyond Boundaries</h1>
+            <p>Please select your role:</p>
+            
+            <div class="role-selection">
+                <button id="patient-btn">Patient</button>
+                <button id="doctor-btn">Doctor</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle button clicks and route users to the login page
+        document.getElementById("patient-btn").addEventListener("click", function () {
+            window.location.href = "patient-login.html";
+        });
+
+        document.getElementById("doctor-btn").addEventListener("click", function () {
+            window.location.href = "doctor-login.html";
+        });
+    </script>
+</body>
+</html>

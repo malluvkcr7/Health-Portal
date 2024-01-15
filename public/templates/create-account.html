@@ -1,0 +1,59 @@
+<!-- create-account.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Account</title>
+    <link rel="stylesheet" href="/static/css/create-account.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  
+    <div class="container">
+        <h1>Create a New Account</h1>
+
+        <!-- Account creation form -->
+        <form action="./create-account" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            
+            <button type="button" onclick="validatePassword()">Submit</button>
+
+           </form>
+           
+
+       
+    </div>
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+    
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please re-enter.");
+                return false;
+            } else {
+                // Passwords match, you can proceed with form submission.
+                // The form will be submitted because the button type is "button".
+                // You may also add further validation here if needed.
+                document.querySelector('form').submit();
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>

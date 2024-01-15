@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Care Beyond Boundaries</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            background-color: #6a64f1; /* Change the background color to blue */
+        }
+        .navbar-brand {
+            color: #ffffff !important; /* Change the brand text color to white */
+            font-weight: bold;
+        }
+        .navbar-toggler-icon {
+            background-color: white; /* Change the color of the toggler icon */
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff !important; /* Change the links text color to white */
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #f8f9fa !important; /* Change the link text color on hover */
+        }
+       
+        .background-image {
+            background-image: url('/static/media/banner.png'); /* Replace with your image file path */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* background-color: rgba(239, 8, 8, 0.269); */
+            /* filter:   saturate(10) hue-rotate(241.5deg); */
+            mix-blend-mode: darken;
+            /* z-index: 2; */
+            /* Semi-transparent background */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="background-image"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <!-- Change bg-light to bg-primary -->
+        <a class="navbar-brand" href="/doctordash.html">Care Beyond Boundaries</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav"> <!-- Add justify-content-end class -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/viewappointments">View-Appointments</a>
+                </li>
+               
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout1">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Remaining Page Content (Empty) -->
+    <div class="container mt-5">
+        <!-- You can add content here as needed -->
+    </div>
+
+    <!-- Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
